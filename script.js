@@ -12,11 +12,13 @@ const updateNotes = () => {
 }
 const initialCall = () => {
     let allTextarea = JSON.parse(localStorage.getItem('notes'));
-    allTextarea.forEach((textarea) => {
-        if (textarea != '') {
-            addNewNote(textarea);
-        }
-    });
+    if (allTextarea) {
+        allTextarea.forEach((textarea) => {
+            if (textarea != '') {
+                addNewNote(textarea);
+            }
+        });
+    }
 }
 
 const addNewNote = (text = '') => {
